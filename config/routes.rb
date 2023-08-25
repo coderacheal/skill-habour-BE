@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  # devise_for :users
+  devise_for :users
   # devise_for :users, controllers: { sessions: 'sessions' }
-  devise_for :users,
-  path: '',
-  path_names: {
-    sign_in: 'login',
-    sign_out: 'logout',
-    registration: 'register'
-  },
-  controllers: {
-    registrations: 'registrations'
-  }
+  # devise_for :users, controllers: { registrations: 'registrations' }
+
+  post '/users', to: 'registrations#create' # Route for user registration
+  # devise_for :users,
+  # path: '',
+  # path_names: {
+  #   sign_in: 'login',
+  #   sign_out: 'logout',
+  #   registration: 'register'
+  # },
+  # controllers: {
+  #   registrations: 'registrations'
+  # }
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
