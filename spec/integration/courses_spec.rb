@@ -2,8 +2,10 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v1/course', type: :request do
   before(:each) do
-        # @user = User.create(username: 'johnd')
-        @course = Course.create(name: 'course', description: 'description', image: 'https://www.wcrf-uk.org/wp-content/uploads/2021/06/588595864r-LS.jpg', price: 456, id: 1)
+    # @user = User.create(username: 'johnd')
+    @course = Course.create(name: 'course', description: 'description',
+                            image: 'https://www.wcrf-uk.org/wp-content/uploads/2021/06/588595864r-LS.jpg',
+                            price: 456, id: 1)
   end
 
   path '/api/v1/courses' do
@@ -35,12 +37,12 @@ RSpec.describe 'api/v1/course', type: :request do
         required: %w[name image price]
       }
       response '201', 'courses created' do
-        let(:course) { { name: 'course1', image: 'https://image.com', price: 100} }
+        let(:course) { { name: 'course1', image: 'https://image.com', price: 100 } }
         run_test!
       end
 
       response '201', 'courses created' do
-        let(:course) { { name: 'course2', image: 'https://image.com', price: 900} }
+        let(:course) { { name: 'course2', image: 'https://image.com', price: 900 } }
         run_test!
       end
     end
@@ -65,4 +67,4 @@ RSpec.describe 'api/v1/course', type: :request do
       end
     end
   end
-end 
+end

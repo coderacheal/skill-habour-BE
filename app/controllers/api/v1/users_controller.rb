@@ -6,5 +6,4 @@ class Api::V1::UsersController < ApplicationController
     msg = { message: 'welcome' }
     render json: msg, status: :ok
   end
-
 end
