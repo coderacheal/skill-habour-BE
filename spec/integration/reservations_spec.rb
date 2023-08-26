@@ -1,13 +1,14 @@
 require 'swagger_helper'
-​
+
 RSpec.describe 'api/v1/reservations', type: :request do
   before(:each) do
     @user = User.create(username: 'Ouail')
     @course = Course.create(name: 'course', description: 'description',
-                            image: 'https://www.wcrf-uk.org/wp-content/uploads/2021/06/588595864r-LS.jpg', price: 456, id: 1)
+                            image: 'https://www.wcrf-uk.org/wp-content/uploads/2021/06/588595864r-LS.jpg',
+                            price: 456, id: 1)
     @reservation = Reservation.create(city: 'City Name', course_name: @course.id, reservation_date: Date.today)
   end
-  ​
+
   path '/api/v1/reservations' do
     get('list reservations') do
       parameter name: 'user_id', in: :path, type: :integer, required: true
@@ -34,7 +35,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
     end
   end
-  ​
+
   path '/api/v1/reservations' do
     post('create reservation') do
       consumes 'application/json'
@@ -57,7 +58,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
                  updated_at: { type: :string, format: 'date-time' }
                },
                required: %w[reservation_date]
-        ​
+
         run_test!
       end
     end
