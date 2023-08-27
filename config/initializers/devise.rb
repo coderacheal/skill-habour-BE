@@ -313,16 +313,18 @@ Devise.setup do |config|
 
   # config.navigational_formats = [:json]
   # config.authentication_keys = [:email, :username]
-  config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
-    jwt.dispatch_requests = [
-      ['POST', %{^/users/sign_in$}]
-    ]
+  
+end
 
-    jwt.dispatch_requests = [
-      ['DELETE', %{^/users/sign_OUT}]
-    ]
+config.jwt do |jwt|
+  jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
+  jwt.dispatch_requests = [
+    ['POST', %{^/users/sign_in$}]
+  ]
 
-    jwt.expiration_time = 120.minutes.to_i
-  end
+  jwt.dispatch_requests = [
+    ['DELETE', %{^/users/sign_out}]
+  ]
+
+  jwt.expiration_time = 120.minutes.to_i
 end
