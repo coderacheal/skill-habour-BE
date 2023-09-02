@@ -1,3 +1,3 @@
 class Reservation < ApplicationRecord
-  has_many courses
+  belongs_to :course
 end

@@ -24,13 +24,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_26_185745) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "city"
-    t.datetime "reservation_date"
     t.string "course_name"
+    t.datetime "reservation_date"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "reservation_id"
-    t.index ["reservation_id"], name: "index_reservations_on_reservation_id"
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_reservations_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,5 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_26_185745) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "reservations", "reservations"
+  add_foreign_key "reservations", "courses"
 end
