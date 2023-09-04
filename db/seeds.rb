@@ -13,4 +13,4 @@ Course.create(name: 'Pottery', description: 'Dive into the world of clay and cer
 Course.create(name: 'Music', description: 'Explore the magic of music, from playing instruments to mastering music theory', image: 'https://raw.githubusercontent.com/coderacheal/skill-habour-fe/dev/src/assets/music.jpg', price: 20)
 Course.create(name: 'Swimming', description: 'Make a splash! Dive into the world of aquatic fitness and water safety', image: 'https://raw.githubusercontent.com/coderacheal/skill-habour-fe/dev/src/assets/swimming.jpg', price: 20)
 
-# User.create(username: 'Racheal', email: 'coderacheal@gmail.com', password: '12345')
+User.create(username: 'atif', email: 'atif@email.com', password: '123456')
