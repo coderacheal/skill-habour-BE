@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-    has_many :reservations
+  has_many :reservations
 
-    validates :name, presence: true, length: { maximum: 100 }
+  validates :name, presence: true, length: { maximum: 100 }
 end

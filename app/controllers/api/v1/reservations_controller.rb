@@ -11,7 +11,7 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def index
-    @user_reservations = Reservation.where(user_id: params[:user_id]) 
+    @user_reservations = Reservation.where(user_id: params[:user_id])
     render json: @user_reservations
   end
 
@@ -24,5 +24,4 @@ class Api::V1::ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:course_name, :reservation_date, :price, :course_id, :user_id)
   end
-  
 end
