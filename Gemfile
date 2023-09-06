@@ -19,6 +19,8 @@ gem 'devise'
 gem 'devise-jwt'
 
 gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"

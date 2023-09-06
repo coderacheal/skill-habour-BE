@@ -272,6 +272,8 @@ DEPENDENCIES
   rails (~> 7.0.7)
   rspec-rails (~> 6.0.0)
   rswag
+  rswag-api
+  rswag-ui
   rubocop (>= 1.0, < 2.0)
   tzinfo-data
 
