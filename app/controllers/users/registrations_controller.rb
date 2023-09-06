@@ -14,4 +14,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
       }, status: :unprocessable_entity
     end
   end
+
+  def sign_up_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  def after_sign_up_path_for(_resource)
+    if sign_up_params[:email] == 'admin@skill-habour.com'
+      # Set the role to 'Admin'
+      current_user.update(role: 'Admin')
+    end
+
+    # Return the path you want to redirect to after registration
+    '/courses' # Change this to the desired path
+  end
 end
