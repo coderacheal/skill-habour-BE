@@ -1,10 +1,6 @@
 <a name="readme-top"></a>
 
-<div align="center">
-  <img src="./public/logos/../skill-habour-logo.png" alt="logo" width="100"  height="auto" />
-  <br/>
-  <h1><b>SKILL HABOUR</b></h1>
-</div>
+<h1 align='center'><b>SKILL HABOUR BACKEND</b></h1>
 
 <!-- TABLE OF CONTENTS -->
 
@@ -18,7 +14,6 @@
 - [🚀 Important Links ](#-important-links-)
     - [FRONTEND REPOSITORY](#frontend-repository)
     - [KANBAN BOARD](#kanban-board)
-    - [API DOCUMENTATION](#api-documentation)
 - [💻 Getting Started ](#-getting-started-)
   - [Prerequisites ](#prerequisites-)
   - [🧰 Setup ](#-setup-)
@@ -63,6 +58,7 @@
   </ul>
 </details>
 
+
 <!-- Features -->
 
 # 💮 Key Features <a name="key-features"></a>
@@ -82,7 +78,7 @@
 <!-- ### [LIVE DEMO]() -->
 ### [FRONTEND REPOSITORY](https://github.com/coderacheal/skill-habour-fe)
 ### [KANBAN BOARD](https://github.com/users/coderacheal/projects/5/views/1)
-### [API DOCUMENTATION]()
+<!-- ### [API DOCUMENTATION]() -->
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -111,7 +107,14 @@ Install this project with:
 
 ```sh
   cd skill-habour-be
+  
   bundle install
+
+  rails db:create
+
+  rails db:migrate
+
+  rails db:seed
 ```
 
 ## 🪜 Usage <a name="usage"></a>
@@ -119,6 +122,7 @@ Install this project with:
 To run the project, execute the following command:
 
 ```sh
+  
   rails s -p3001
   
 ```
