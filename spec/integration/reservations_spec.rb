@@ -6,10 +6,10 @@ RSpec.describe 'api/v1/reservations', type: :request do
     @course = Course.create(name: 'course', description: 'description',
                             image: 'https://www.wcrf-uk.org/wp-content/uploads/2021/06/588595864r-LS.jpg',
                             price: 456, id: 1)
-    @reservation = Reservation.create(city: 'City Name', course_name: @course.id, reservation_date: Date.today)
+    @reservation = Reservation.create(course_name: @course.name, reservation_date: Date.today)
   end
 
-  path '/api/v1/reservations' do
+  path '/api/v1/courses/:course_id/reservations' do
     get('list reservations') do
       parameter name: 'user_id', in: :path, type: :integer, required: true
       let(:user_id) { User.create(username: 'Ouail') }
@@ -28,7 +28,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
                }
         it('should return success') do
           user_id = @user.id
-          get '/api/v1/reservations', params: { user_id: }
+          get '/api/v1/courses/:course_id/reservations', params: { user_id: }
           expect(response).to have_http_status(:success)
         end
         run_test!
@@ -36,7 +36,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
   end
 
-  path '/api/v1/reservations' do
+  path '/api/v1/courses/:course_id/reservations' do
     post('create reservation') do
       consumes 'application/json'
       produces 'application/json'
@@ -44,23 +44,12 @@ RSpec.describe 'api/v1/reservations', type: :request do
       parameter name: :reservation, in: :body, schema: {
         type: :object,
         properties: {
-          reservation_date: { type: :string },
+          reservation_date: { type: :string, format: 'date-time'  },
           city: { type: :integer },
           user_id: { type: :integer }
         },
         required: %w[city reservation_date user_id]
       }
-      response(201, 'successful') do
-        schema type: :object,
-               properties: {
-                 reservation_date: { type: :date },
-                 created_at: { type: :string, format: 'date-time' },
-                 updated_at: { type: :string, format: 'date-time' }
-               },
-               required: %w[reservation_date]
-
-        run_test!
-      end
     end
   end
 end
