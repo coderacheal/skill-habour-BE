@@ -44,7 +44,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
       parameter name: :reservation, in: :body, schema: {
         type: :object,
         properties: {
-          reservation_date: { type: :string, format: 'date-time'  },
+          reservation_date: { type: :string, format: 'date-time' },
           city: { type: :integer },
           user_id: { type: :integer }
         },
