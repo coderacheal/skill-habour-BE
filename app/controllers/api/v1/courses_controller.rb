@@ -16,13 +16,24 @@ class Api::V1::CoursesController < ApplicationController
     if @course.save
       render json: @course, status: :created
     else
-      render json: { errors: @course.errors.full_messages }, status: :unprocessable_entity
+      render json: @course.errors, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @course = Course.find(params[:id])
+
+    if @course.destroy
+      render json: { message: 'Reservation deleted successfully' }, status: :no_content
+    else
+      render json: { error: 'Unable to delete reservation' }, status: :unprocessable_entity
+    end
+  end
+
 
   private
 
   def course_params
-    params.require(:course).permit(:name, :description, :image, :price, :user_id)
+    params.require(:course).permit(:name, :description, :image, :price)
   end
 end
