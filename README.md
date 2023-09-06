@@ -117,6 +117,21 @@ Install this project with:
   rails db:seed
 ```
 
+**Database Setup Troubleshooting: Missing Master Key**
+
+1. **Remove Existing Configuration Files**: First, check if `config/master.key` and `config/credentials.yml.enc` exist in your project directory. If they do, remove them.
+
+2. **Edit Credentials**: Open your terminal and run the following command:
+
+    ```bash
+    EDITOR=code rails credentials:edit
+    ```
+
+    Replace `code` with your preferred text editor (e.g., `nano`, `vim`, or `subl`, depending on your setup).
+
+3. **Generate New Master Key**: The previous step will generate a new `master.key` and `credentials.yml.enc` if they don't already exist in your project directory.
+
+
 ## 🪜 Usage <a name="usage"></a>
 
 To run the project, execute the following command:
@@ -143,10 +158,10 @@ To run the project, execute the following command:
 - GitHub: [@AtifZada](https://github.com/Atifzada)
 - LinkedIn: [Atif Zada](https://www.linkedin.com/in/atif-zada)
 
-🤓 **Ouail Laraabi**
+🤓 **Ouail Laarabi**
 
-- GitHub: [@Ouail-01](https://github.com/Ouail-01l)
-- LinkedIn: [Ouail Laraabi]()
+- GitHub: [@Ouail-01](https://github.com/Ouail-01)
+- LinkedIn: [Ouail Laarabi](https://www.linkedin.com/in/ouail-laarabi/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
