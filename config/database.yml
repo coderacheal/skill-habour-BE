@@ -86,6 +86,4 @@ test:
 #
 production:
   <<: *default
-  database: skill_habour_be_production
-  username: skill_habour_be
-  password: <%= ENV["SKILL_HABOUR_BE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %> 
